@@ -1,23 +1,18 @@
-export default class Kanban {
+export default class Kanban{
 
-    static getTasks(columnId) {
+    static getTasks(columnId){
         const data = read().find(column => {
             return column.columnId == columnId;
         });
-
-        if (!data) {
-            return []
-        }
-
+        
         return data.tasks;
     }
 
-    static insertTask(columnId, content) {
+    static insertTask(columnId, content){
         const data = read();
         const column = data.find(column => {
             return column.columnId == columnId;
         });
-
         const task = {
             taskId: Math.floor(Math.random() * 100000),
             content: content
@@ -30,26 +25,22 @@ export default class Kanban {
         return task;
     }
 
-    static updateTask(taskId, updatedInformation) {
+    static updateTask(taskId, updatedInformation){
         const data = read();
 
-        function findColumnTask() {
-
-            for (const column of data) {
+        function findColumnTask(){
+            for(const column of data){
                 const task = column.tasks.find(item => {
                     return item.taskId == taskId;
                 });
-
-                if (task) {
+    
+                if(task){
                     return [task, column];
                 }
-
-
             }
         }
-
         const [task, currentColumn] = findColumnTask();
-        
+
         const targetColumn = data.find(column => {
             return column.columnId == updatedInformation.columnId;
         });
@@ -59,50 +50,46 @@ export default class Kanban {
         targetColumn.tasks.push(task);
 
         save(data);
-
     }
 
-    static deleteTask(taskId) {
+    static deleteTask(taskId){
         const data = read();
 
-        for (const column of data) {
+        for(const column of data){
             const task = column.tasks.find(item => {
                 return item.taskId == taskId;
             });
 
             if(task){
                 column.tasks.splice(column.tasks.indexOf(task), 1);
-            }
-
-           
+            }            
         }
 
         save(data);
-
     }
 
-    static getAllTasks() {
+    static getAllTasks(){
         const data = read();
         columnCount();
         return [data[0].tasks, data[1].tasks, data[2].tasks];
     }
 }
 
-
-function read() {
+function read(){
     const data = localStorage.getItem("data");
 
-    if (!data) {
+    if(!data){
         return [
-            { columnID: 0, task: [] },
-            { columnID: 1, task: [] },
-            { columnID: 2, task: [] }
-        ]
+            {columnId: 0, tasks: []}, 
+            {columnId: 1, tasks: []}, 
+            {columnId: 2, tasks: []}
+        ];
     }
+
     return JSON.parse(data);
 }
 
-function save(data) {
+function save(data){
     localStorage.setItem("data", JSON.stringify(data));
     columnCount();
 }
@@ -121,19 +108,23 @@ function columnCount(){
 }
 
 
+// console.log(Kanban.getAllTasks());
+// console.log(Kanban.getTasks(1));
 
 
+// console.log(Kanban.getTasks(1));
+// console.log(Kanban.insertTask(0, "Record Kanban Lectures"));
+// console.log(Kanban.getTasks(1));
 
 
-//console.log(Kanban.getAllTasks());
-//console.log(Kanban.getTasks(1));
-//console.log(Kanban.insertTask(1,"Edit Kanban Project Prakash"));
-//Kanban.deleteTask(68503);
+// console.log(Kanban.getAllTasks());
+// Kanban.deleteTask(11822);
+// console.log(Kanban.getAllTasks());
 
-// Kanban.updateTask(97522,{
+
+// console.log(Kanban.getAllTasks());
+// Kanban.updateTask(97522, {
 //     columnId: 2,
-//     content: "Record JavaScript Prakash"
+//     content: "Record JavaScript Preview"
 // });
-
-
 // console.log(Kanban.getAllTasks());

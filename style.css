@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
 
-:root {
+:root{
     --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
@@ -15,66 +15,67 @@
     list-style: none;
 }
 
-.hide {
+.hide{
     display: none;
 }
 
-.outer-wrap {
+.outer-wrap{
     width: 100%;
     min-height: 100vh;
     background-color: #0D479A;
     padding: 30px;
 }
 
-.inner-wrap {
+.inner-wrap{
     max-width: 1200px;
     margin: auto;
 }
 
-.heading {
+.heading{
     margin-bottom: 30px;
 }
 
-.heading .title {
+.heading .title{
     font-size: 30px;
     color: #FFFFFF;
     font-weight: 500;
     text-align: center;
 }
 
-.heading .subtitle {
+.heading .subtitle{
     font-size: 20px;
     color: #FFFFFF;
     font-weight: 300;
     text-align: center;
 }
 
-.kanban {
+.kanban{
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
     min-height: 80vh;
 }
 
-.taskbox {
+.taskbox{
     background-color: #D9DFE9;
     padding: 15px;
     border-radius: 5px;
     min-width: 325px;
     max-width: 500px;
     box-shadow: var(--box-shadow);
+    margin: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.taskbox .title {
+.taskbox .title{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
 }
 
-.taskbox .title span {
+.taskbox .title span{
     background-color: #E45826;
     color: #FFFFFF;
     padding: 10px;
@@ -86,7 +87,7 @@
     padding: 10px 5px;
 }
 
-.card {
+.card{
     background-color: #FFFFFF;
     margin: 10px 0px;
     padding: 10px;
@@ -96,39 +97,35 @@
     box-shadow: var(--box-shadow);
 }
 
-.card input {
+.card input{
     background-color: #FFFFFF;
     margin: 10px 0px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border: 0px;
-
 }
 
-.card div {
+.card div{
     display: flex;
     justify-content: space-between;
 }
 
-.card div span {
+.card div span{
     font-size: 12px;
     padding: 5px 0px;
     align-self: center;
+    
 }
 
-.card div span.task-id {
+.card div span.task-id{
     background-color: #002366;
     padding: 5px;
     color: #FFFFFF;
     border-radius: 5px;
 }
 
-.card .edit {
-    background-color: #646464;
-}
-
-.card button {
+.card button{
     color: #FFFFFF;
     font-size: 14px;
     padding: 8px;
@@ -139,12 +136,15 @@
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
-.card .update {
-    background-color: #005ed8;
-
+.card .edit{
+    background-color: #646464;
 }
 
-.card .delete {
+.card .update{
+    background-color: #005ed8;
+}
+
+.card .delete{
     background-color: #e20000;
 }
 
@@ -175,10 +175,9 @@
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     cursor: pointer;
     margin-left: 4px;
-    align-self: center;
 }
 
-@media (max-width:1080px){
+@media (max-width: 1080px){
     .kanban{
         flex-direction: column;
         align-items: center;
